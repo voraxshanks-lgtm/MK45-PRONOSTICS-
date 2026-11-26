@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050506;
+  --gold: #e9bd55;
+  --gold-light: #f7d98c;
+  --text: #f5f5f5;
+  --muted: #858994;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  min-height: 100vh;
+  background: #050506;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: 'Outfit', sans-serif; }
+button { cursor: pointer; font: inherit; -webkit-tap-highlight-color: transparent; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--gold); color: #000; }
+
+/* FOND */
+.bg-premium {
+  background:
+    radial-gradient(circle at 50% -10%, rgba(233,189,85,.22), transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(233,189,85,.12), transparent 30%),
+    #050506;
+}
+
+/* BOUTONS */
+.btn-gold {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 15px 22px; border-radius: 14px; border: none;
+  background: linear-gradient(180deg, #fff3b0 0%, #f7d98c 30%, #e9bd55 60%, #9f792d 100%);
+  color: #1a1200; font-size: 13px; font-weight: 900; letter-spacing: .4px;
+  box-shadow: 0 6px 0 #6b4d12, 0 14px 28px rgba(233,189,85,.35), inset 0 1px 0 rgba(255,255,255,.7);
+  transition: all .2s ease;
+}
+.btn-gold:active { transform: translateY(4px); box-shadow: 0 2px 0 #6b4d12; }
+.btn-outline {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 20px; border-radius: 14px; color: var(--gold); font-size: 12px; font-weight: 800;
+  background: rgba(233,189,85,.06); border: 1px solid rgba(233,189,85,.45);
+}
+.vip-badge {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px;
+  background: linear-gradient(180deg, #ffe98a, #c79a2e); color: #1a1200; font-size: 11px; font-weight: 900;
+  box-shadow: 0 4px 0 #6b4d12, 0 8px 18px rgba(233,189,85,.4);
+}
+
+/* HERO PRO - JOUEURS 3D */
+.pro-hero {
+  position: relative; border-radius: 24px; overflow: hidden;
+  background: linear-gradient(180deg, #0a1a0f 0%, #0f2a18 55%, #07130b 100%);
+  border: 1px solid rgba(233,189,85,.45);
+  box-shadow: 0 25px 50px rgba(0,0,0,.65);
+  padding: 22px 18px 18px;
+}
+.pro-hero::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(255,255,255,.18) 49%, rgba(255,255,255,.18) 51%, transparent 51%),
+    radial-gradient(circle at 50% 78%, transparent 45px, rgba(255,255,255,.18) 46px, rgba(255,255,255,.18) 47px, transparent 48px);
+  pointer-events: none;
+}
+.pro-players { display: flex; justify-content: space-between; align-items: flex-end; height: 105px; position: relative; z-index: 2; }
+.player-pro { font-size: 68px; line-height: 1; filter: drop-shadow(0 10px 0 rgba(0,0,0,.3)) drop-shadow(0 14px 18px rgba(0,0,0,.6)); animation: playerRun 1.6s ease-in-out infinite; }
+.player-pro.keeper { font-size: 76px; animation: keeperJump 2.2s ease-in-out infinite; }
+.ball-pro { font-size: 28px; animation: ballRoll 3.5s ease-in-out infinite; filter: drop-shadow(0 6px 6px rgba(0,0,0,.5)); }
+
+.promo-pro-card {
+  position: relative; z-index: 3; margin-top: 8px;
+  background: linear-gradient(145deg, #1d1f24, #101114);
+  border: 1px solid rgba(233,189,85,.45); border-radius: 18px; padding: 16px; text-align: center;
+  box-shadow: 0 18px 35px rgba(0,0,0,.6);
+}
+.promo-code-pro {
+  font-family: 'Outfit', sans-serif; font-size: 44px; font-weight: 900; letter-spacing: 3px; line-height: 1;
+  background: linear-gradient(180deg, #fff8d6, #f7d98c 40%, #e9bd55 60%, #8a6a24 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 3px 0 #5a4512) drop-shadow(0 8px 16px rgba(0,0,0,.7));
+}
+
+/* PRONOSTICS V2 */
+.prono-section { margin-top: 24px; }
+.prono-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.prono-title { font-family: 'Outfit', sans-serif; font-size: 21px; font-weight: 900; }
+.prono-title span { color: #e9bd55; }
+.prono-live {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(0,255,100,.08); border: 1px solid rgba(74,222,128,.4);
+  color: #4ade80; font-size: 11px; font-weight: 900; padding: 7px 11px; border-radius: 999px;
+}
+.prono-live i { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; display: block; box-shadow: 0 0 12px #4ade80; animation: pulseGold 1.4s infinite; }
+
+.prono-card {
+  position: relative;
+  background: linear-gradient(160deg, #20222a 0%, #131419 55%, #0c0d10 100%);
+  border: 1px solid rgba(233,189,85,.28); border-radius: 22px; padding: 0; margin-bottom: 16px; overflow: hidden;
+  transform: perspective(1100px) rotateX(2deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.08);
+  transition: all .35s ease;
+}
+.prono-card:hover { transform: perspective(1100px) rotateX(0deg) translateY(-6px); border-color: rgba(233,189,85,.7); }
+.prono-top { padding: 16px 16px 0; display: flex; justify-content: space-between; align-items: flex-start; }
+.prono-league { font-size: 11px; font-weight: 900; letter-spacing: 1.2px; color: #e9bd55; text-transform: uppercase; }
+.prono-time { font-size: 11px; font-weight: 700; color: #858994; background: rgba(255,255,255,.07); padding: 5px 9px; border-radius: 999px; }
+.prono-teams { padding: 10px 16px 0; font-family: 'Outfit', sans-serif; font-size: 19px; font-weight: 900; line-height: 1.25; }
+.prono-teams small { display: block; font-size: 12px; font-weight: 600; color: #858994; margin-top: 2px; }
+.prono-meta { display: flex; gap: 7px; flex-wrap: wrap; padding: 12px 16px 0; }
+.prono-pill { font-size: 11px; font-weight: 800; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); color: #d6d6d6; }
+.prono-pill.gold { background: rgba(233,189,85,.16); border-color: rgba(233,189,85,.55); color: #f7d98c; }
+.prono-pill.green { background: rgba(74,222,128,.12); border-color: rgba(74,222,128,.4); color: #4ade80; }
+.prono-pill.fire { background: rgba(255,80,0,.14); border-color: rgba(255,120,0,.45); color: #ff9a5a; }
+.prono-pick {
+  margin: 14px 16px 0;
+  background: linear-gradient(180deg, #fff6c9 0%, #f7d98c 25%, #e9bd55 65%, #c79a2e 100%);
+  color: #1a1200; border-radius: 14px; padding: 13px 14px;
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  box-shadow: 0 7px 0 #6b4d12, 0 14px 24px rgba(233,189,85,.25), inset 0 1px 0 #fff;
+}
+.prono-pick-label { font-size: 10px; font-weight: 900; letter-spacing: 1px; opacity: .65; }
+.prono-pick b { font-size: 15px; line-height: 1.2; display: block; margin-top: 1px; }
+.prono-odd { text-align: right; flex-shrink: 0; }
+.prono-odd span { font-size: 26px; font-weight: 900; font-family: 'Outfit', sans-serif; line-height: 1; display: block; }
+.prono-odd small { font-size: 10px; font-weight: 800; opacity: .6; }
+.prono-footer { padding: 14px 16px 16px; }
+.prono-conf-row { display: flex; justify-content: space-between; font-size: 11px; font-weight: 800; color: #858994; margin-bottom: 6px; }
+.prono-conf-row b { color: #f7d98c; }
+.prono-confidence { height: 7px; background: rgba(255,255,255,.08); border-radius: 999px; overflow: hidden; }
+.prono-confidence div { height: 100%; background: linear-gradient(90deg, #fff3b0, #e9bd55); border-radius: 999px; }
+.prono-vip-banner { margin-top: 8px; padding: 16px; text-align: center; background: linear-gradient(145deg, #1f1a08, #12100a); border: 1px dashed rgba(233,189,85,.6); border-radius: 18px; }
+
+@keyframes playerRun { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-6px) rotate(2deg); } }
+@keyframes keeperJump { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes ballRoll { 0%,100% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(28px) rotate(360deg) translateY(-8px); } }
+@keyframes pulseGold { 0%,100% { box-shadow: 0 0 0 0 rgba(233,189,85,0); } 50% { box-shadow: 0 0 12px 2px rgba(233,189,85,.4); } }
+
+@media (max-width: 768px) {
+  .prono-teams { font-size: 17px; }
+  .promo-code-pro { font-size: 38px; }
+}
